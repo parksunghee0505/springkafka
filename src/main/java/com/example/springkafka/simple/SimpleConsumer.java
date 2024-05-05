@@ -11,7 +11,7 @@ public class SimpleConsumer {
 
     private final static Logger log = LoggerFactory.getLogger(SimpleConsumer.class);
 
-    @KafkaListener(topics = "greeting", groupId = "group1")
+    @KafkaListener(topics = "greeting", groupId = "${spring.kafka.consumer.group-id}")
     public void receive(ConsumerRecord<String, String> record) {
         log.info("kafka receive message = {}", record);
     }
