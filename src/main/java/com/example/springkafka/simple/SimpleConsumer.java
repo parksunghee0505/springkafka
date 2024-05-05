@@ -15,4 +15,9 @@ public class SimpleConsumer {
     public void receive(ConsumerRecord<String, String> record) {
         log.info("kafka receive message = {}", record);
     }
+
+    @KafkaListener(topics = "greeting", groupId = "group2", containerFactory = "customContainerFactory")
+    public void receiveCustom(ConsumerRecord<String, String> record) {
+        log.info("kafka custom listener receive message = {}", record);
+    }
 }
